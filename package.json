@@ -1,10 +1,10 @@
 {
-  "name": "react-sinergy",
+  "name": "react-synergy",
   "version": "1.0.0",
   "description": "Status management to React js.",
   "author": "Rafael Mayor Alberto",
   "license": "MIT",
-  "repository": "https://github.com/rafaelmayoralberto22/react-sinergy.git",
+  "repository": "https://github.com/rafaelmayoralberto22/react-synergy.git",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
