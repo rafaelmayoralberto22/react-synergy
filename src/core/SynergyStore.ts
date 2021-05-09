@@ -53,7 +53,7 @@ export class Store<T extends object> {
       const rGetter: Record<string, Function> = {}
       Object.keys(getters).forEach((value) => {
         Object.defineProperty(rGetter, value, {
-          get: () => () => getters[value](this.state),
+          get: () => getters[value](this.state),
           enumerable: true
         })
       })
