@@ -1,9 +1,11 @@
-export interface SStoreProps<T>{
-  state: T;
+export interface SynergyStoreProps<T> {
+  name: string
 
-  mutations: Record<string, Function>;
+  state: T
 
-  getters: Record<string, Function>;
+  mutations: Record<string, Function>
 
-  actions?: Record<string, Function>;
+  getters: Record<string, Function>
+
+  actions?: Record<string, Function>
 }

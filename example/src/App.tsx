@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-synergy'
+import { SynergyProvider } from 'react-synergy'
 import 'react-synergy/dist/index.css'
+import store from './store/PersonStore'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <SynergyProvider>{store.getters.getFullName}</SynergyProvider>
 }
 
 export default App
