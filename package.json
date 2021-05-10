@@ -1,10 +1,13 @@
 {
   "name": "react-synergy",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "State management to React js.",
   "author": "Rafael Mayor Alberto",
   "license": "MIT",
-  "repository": "https://github.com/rafaelmayoralberto22/react-synergy.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelmayoralberto22/react-synergy.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -60,5 +63,18 @@
   },
   "files": [
     "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/rafaelmayoralberto22/react-synergy/issues"
+  },
+  "homepage": "https://github.com/rafaelmayoralberto22/react-synergy#readme",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "state",
+    "management",
+    "to",
+    "reactjs"
   ]
 }
