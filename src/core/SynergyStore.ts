@@ -1,5 +1,6 @@
-import { isEmpty } from '../utils/utils'
+import { changeStateInLocalStore, isEmpty } from '../utils/Utils'
 import { SynergyStoreProps } from '../types/SynergyStoreProps'
+import { SynergyCreateStoreOptions } from '../types/SynergyCreateStoreOptions'
 
 export class Store<T extends object> {
   state: T
@@ -10,9 +11,24 @@ export class Store<T extends object> {
 
   actions: Record<string, Function>
 
-  constructor(props: SynergyStoreProps<T>) {
-    const { state, actions, getters, mutations } = props
-    this.state = state
+  constructor(
+    props: SynergyStoreProps<T>,
+    options?: SynergyCreateStoreOptions
+  ) {
+    const { state, actions, getters, mutations, name } = props
+    this.state = new Proxy(state, {
+      set: (target, key, value) => {
+        if (options?.persistence && target[key] !== value)
+          changeStateInLocalStore(name, key, value)
+
+        target[key] = value
+        return true
+      },
+      get(target: T, key): any {
+        return target[key]
+      }
+    })
+
     this.mutations = this.registerMutations(mutations)
     this.actions = this.registerActions(actions)
     this.getters = this.registerGetters(getters)

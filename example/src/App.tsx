@@ -1,15 +1,21 @@
 import React from 'react'
 
-import 'react-synergy/dist/index.css'
 import store from './store/PersonStore'
+import { useObserverStore } from 'react-synergy'
 
 const App = () => {
-  store.commit('setName', 'Rafa');
+  const buildStore = useObserverStore(store)
+
+  const onClick = () => {
+    buildStore.commit('setName', 'Rafa' + Math.random())
+  }
 
   return (
     <div style={{ display: 'flex' }}>
-      <span>{store.state.lastName}</span> |<span>{store.state.name}</span> |
-      <span>{store.getters.getFullName}</span>
+      <input type='button' onClick={onClick} value='ClickMe' />
+      <span>{buildStore.state.lastName}</span> |
+      <span>{buildStore.state.name}</span> |
+      <span>{buildStore.getters.getFullName}</span>
     </div>
   )
 }
