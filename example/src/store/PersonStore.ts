@@ -13,13 +13,13 @@ const store = createStore<Toggle>(
     actions: {
       randomName({ commit }: SynergyContextProps<Toggle>) {
         const words = [
-          'Ruben',
-          'Roger',
-          'Marcelo',
-          'David',
-          'Yaniel',
-          'Adolfo',
-          'Javier'
+          'Kiara',
+          'Izan',
+          'Julissa',
+          'Neytiri',
+          'Amara',
+          'Maverick',
+          'Kya'
         ]
         commit('setName', words[Math.floor(Math.random() * words.length)])
       }
