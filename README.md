@@ -38,6 +38,9 @@ const store = createStore<Toggle>({
         'Kya'
       ]
       commit('setName', words[Math.floor(Math.random() * words.length)])
+    },
+    changeLastName({ commit }: SynergyContextProps<Toggle>, value: string) {
+      commit('setLastName', value)
     }
   },
   mutations: {
@@ -81,7 +84,7 @@ const App = () => {
 
   const onClickLastName = () => {
     const lastName = prompt('Please enter your last name', 'Lakers')
-    buildStore.commit('setLastName', lastName)
+    buildStore.dispatch('changeLastName', lastName)
   }
 
   return (
