@@ -2,7 +2,7 @@ import { SynergyContextProps } from '../types/SynergyContextProps'
 import { SynergyStoreProps } from '../types/SynergyStoreProps'
 import { Store } from './SynergyStore'
 import { SynergyCreateStoreOptions } from '../types/SynergyCreateStoreOptions'
-import { getStoreToStorage, saveStore } from '../utils/Utils'
+import { getStoreToStorage, keySessionStore, saveStore } from '../utils/Utils'
 
 export function createStore<T extends object>(
   props: SynergyStoreProps<T>,

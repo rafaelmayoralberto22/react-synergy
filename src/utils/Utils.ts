@@ -1,6 +1,6 @@
 import { SynergyStoreProps } from '../types/SynergyStoreProps'
 
-const keySessionStore = 'synergy-persistence'
+export const keySessionStore = 'synergy-persistence'
 
 export const isEmpty = (record: Record<string, Function>) => {
   return !Object.keys(record).length
@@ -8,10 +8,10 @@ export const isEmpty = (record: Record<string, Function>) => {
 
 export const saveStore = <T>(props: SynergyStoreProps<T>) => {
   const { name, state } = props
-  const isLocate = localStorage.getItem(keySessionStore)
+  const isLocate = sessionStorage.getItem(keySessionStore)
   const value = isLocate ? JSON.parse(isLocate) : {}
 
-  localStorage.setItem(
+  sessionStorage.setItem(
     keySessionStore,
     JSON.stringify({
       ...value,
@@ -25,22 +25,22 @@ export const changeStateInLocalStore = (
   props: PropertyKey,
   value: unknown
 ) => {
-  const valueStore = JSON.parse(localStorage.getItem(keySessionStore) ?? '')
-  if (valueStore.hasOwnProperty(nameStore)) {
+  const valueStore = JSON.parse(sessionStorage.getItem(keySessionStore) ?? '')
+  if (Object.prototype.hasOwnProperty.call(valueStore, nameStore)) {
     const store = valueStore[nameStore]
     valueStore[nameStore] = {
       ...store,
       [props]: value
     }
-    localStorage.setItem(keySessionStore, JSON.stringify(valueStore))
+    sessionStorage.setItem(keySessionStore, JSON.stringify(valueStore))
   }
 }
 
 export const getStoreToStorage = (name: string) => {
-  const keyStore = localStorage.getItem(keySessionStore)
+  const keyStore = sessionStorage.getItem(keySessionStore)
   if (keyStore) {
     const valueStore = JSON.parse(keyStore)
-    if (valueStore.hasOwnProperty(name)) {
+    if (Object.prototype.hasOwnProperty.call(valueStore, name)) {
       return valueStore[name]
     }
   }

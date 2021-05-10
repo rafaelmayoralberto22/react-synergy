@@ -7,13 +7,11 @@ export function useObserverStore<T extends object>(
 ): SynergyContextProps<T> {
   const [state, setState] = useState<boolean>(false)
 
-  const execAction = (action: 'commit' | 'dispatch') => (
-    type: string,
-    payload?: unknown
-  ) => {
-    props[action](type, payload)
-    setState(!state)
-  }
+  const execAction =
+    (action: 'commit' | 'dispatch') => (type: string, payload?: unknown) => {
+      props[action](type, payload)
+      setState(!state)
+    }
 
   return {
     state: props.state,
