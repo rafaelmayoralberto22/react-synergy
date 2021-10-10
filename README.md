@@ -1,6 +1,6 @@
 # react-synergy
 
-> State management to React js.
+> State management to React js inspired by Vuex
 
 [![NPM](https://img.shields.io/npm/v/react-synergy.svg)](https://www.npmjs.com/package/react-synergy) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
